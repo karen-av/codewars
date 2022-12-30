@@ -1,3 +1,3 @@
-x = 1 
-y = x % 2
-print(y)
+x = [1]
+m = max(x)
+print(m)
