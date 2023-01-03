@@ -1,3 +1,4 @@
-N = int(12)
-a = [1 for i in range(N)]
-print(a)
+x = 'hello'
+y = "12"
+c = x + y
+print(c)
