@@ -1,4 +1,6 @@
-x = 'hello'
-y = "12"
-c = x + y
-print(c)
+x = "T"
+y = x.lower()
+print(y)
+r = ord(y) - 96
+
+print(r)
