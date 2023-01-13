@@ -37,7 +37,7 @@ def top_3_words(text):
     res = []
     dic = {}
     new_text = ''
-    for i in text:
+    for n, i in enumerate(text):
         if not i.isalpha() and i != "'":
             new_text += " "
         else:
@@ -45,15 +45,21 @@ def top_3_words(text):
     lst = new_text.lower().split()
     for i in lst:    
         dic[i] = lst.count(i)
-    #print(dic)
     i = 0
     while i < 3 and len(dic) > 0:
-        res.append(max(dic, key=dic.get))
-        dic.pop(max(dic, key=dic.get)) 
+        word = max(dic, key=dic.get)
+        s, q = 0, 0
+        while q == 0 and s < len(word):
+            print(word[s])
+            if word[s].isalpha():
+                res.append(word)
+                q += 1
+            s += 1
         i += 1
+        dic.pop(max(dic, key=dic.get))             
 
     return res
 
 
-x = top_3_words("  //wont won't won't ")#, ["won't", "wont"])
+x = top_3_words("  '''  ")#, [])
 print(x)
