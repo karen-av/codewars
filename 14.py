@@ -23,12 +23,11 @@ result = solution("apples, pears # and bananas\ngrapes\nbananas !apples", ["#", 
 def strip_comments(strng, markers):
     i = 0
     res = ''
-    for char in strng:
+    for char in strng: 
         if char in markers:
             i += 1
-            res = res.rstrip()
-            res += '1'
-            print(res)
+            if len(res) > 0 and res[-1] != '\n':
+                res = res.rstrip()
         if char == '\n':
             i = 0
         if i == 0:
@@ -36,5 +35,7 @@ def strip_comments(strng, markers):
 
     return res
 
-result = strip_comments("apples, pears # and bananas\ngrapes\nbananas !apples", ["#", "!"])
-#print(result)
+result = strip_comments("\t@\nlemons\nlemons ' avocados bananas\n# ' ' bananas", 
+                        ['=', '^', "'", '!', '#', '.', ',', '@', '?']
+                        )
+print(repr(result))
