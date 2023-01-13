@@ -1,11 +1,14 @@
-x = 0
-y = 16
 
-res = ''
-dict = {
-0:'0',1:'1', 2:'2', 3:'3', 4:'4', 5:'5', 6:'6', 7:'7', 8:'8', 9:'9', 10:'A', 11:'B', 12:'C', 13:'D', 14:'E', 15:'F'
-}
-while x >= 1:
-    res = dict[int(x % y)] + res
-    x = x / y
-print(res)
+from array import *
+
+a = array('i', [1,2,3])
+x = (2, 3, '34')
+y = ['d', 4]
+
+y.append(5)
+
+print(y)
+print(a[0])
+print(type(x))
+print(type(y))
+print(type(a))
