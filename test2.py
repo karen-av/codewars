@@ -1,3 +1,10 @@
-x = [1, 2, 3, 4]
-x.insert(len(x) - 1,7)
-print(x)
+def permutations(s):
+    res = []
+    for i, w in enumerate(s):
+        res += s.replace(s[[[[[0]]]]])
+
+    return True
+
+x = 'aabb' 
+#['aabb', 'abab', 'abba', 'baab', 'baba', 'bbaa'])
+print(permutations(x))

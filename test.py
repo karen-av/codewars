@@ -17,12 +17,15 @@ def func2(text, chr):
         res += (i + ' ')
     return res
 
+def func3(text, chr):
+    return (i for i in text)
 
 x = 'next'
 y = 'hello world'
-print(func(x, '_'))
-print(func1(y, "_"))
-print((func2(y, '_')))
+#print(func(x, '_'))
+#print(func1(y, "_"))
+#print((func2(y, '_')))
+print(func3('hello', 'l'))
 
 a = (i**2 for i in range(1,5))
 for i in a:
