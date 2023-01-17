@@ -11,10 +11,20 @@ def func1(text, chr):
     return res
 
 def func2(text, chr):
-    return(chr.join(word) for word in text.splir())
+    x = ("_".join(word) for word in text.split())
+    res = ''
+    for i in x:
+        res += (i + ' ')
+    return res
+
 
 x = 'next'
 y = 'hello world'
 print(func(x, '_'))
 print(func1(y, "_"))
-print(y, '_')
+print((func2(y, '_')))
+
+a = (i**2 for i in range(1,5))
+for i in a:
+ pass
+#   print(i)

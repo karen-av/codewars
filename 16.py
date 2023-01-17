@@ -39,10 +39,12 @@ def permutations(s):
 
             res.append(tmp_res)
             i += 1
-        
+    
         strng += strng[0]
         strng = strng[1:]
         c += 1
+
+    
 
     return res
 
