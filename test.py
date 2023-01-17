@@ -1,14 +1,20 @@
 
-from array import *
+def func(text, chr):
+    return(chr.join(text))
 
-a = array('i', [1,2,3])
-x = (2, 3, '34')
-y = ['d', 4]
+def func1(text, chr):
+    res = ''
+    for word in text.split():
+        res += "_".join(word)
+        res += ' '
+    res = res[:-1]
+    return res
 
-y.append(5)
+def func2(text, chr):
+    return(chr.join(word) for word in text.splir())
 
-print(y)
-print(a[0])
-print(type(x))
-print(type(y))
-print(type(a))
+x = 'next'
+y = 'hello world'
+print(func(x, '_'))
+print(func1(y, "_"))
+print(y, '_')
