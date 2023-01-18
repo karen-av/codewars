@@ -24,6 +24,8 @@ Good luck!
 
 """
 
+import itertools
+
 def permutations(s):
     res = set([s])
     print(f'res - {res}')
@@ -36,6 +38,11 @@ def permutations(s):
     
     return list(res)
 
+def permutations_1(string):
+    return list("".join(p) for p in set(itertools.permutations(string)))
+
 x = 'aabb' 
 #['aabb', 'abab', 'abba', 'baab', 'baba', 'bbaa'])
 print(permutations(x))
+print(permutations_1(x))
+
