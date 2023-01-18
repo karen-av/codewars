@@ -25,28 +25,16 @@ Good luck!
 """
 
 def permutations(s):
-    strng = s
-    res = []
-    c = 0
-    while c < len(s):
-        i = 0
-        while i < len(s):
-            tmp_res = ''
-            for word in strng:
-                tmp_res += word
-            strng += strng[0]
-            strng = strng[1:]
-
-            res.append(tmp_res)
-            i += 1
+    res = set([s])
+    print(f'res - {res}')
+    if len(s) == 2:
+        res.add(s[1] + s[0]) 
+    if len(s) > 2:
+        for n, w in enumerate(s):
+            for k in permutations(s[:n] + s[n + 1:]):
+                res.add(w + k)
     
-        strng += strng[0]
-        strng = strng[1:]
-        c += 1
-
-    
-
-    return res
+    return list(res)
 
 x = 'aabb' 
 #['aabb', 'abab', 'abba', 'baab', 'baba', 'bbaa'])
