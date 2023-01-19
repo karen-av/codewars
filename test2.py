@@ -1,18 +1,6 @@
 
-a = [1, 3, 8, 7]
-print(a[::-1])
-#[7, 8, 3, 1]
-print(a[:-2])
-#[1, 3]
-print(a[-2::-1])
-#[8, 3, 1]
-print(a[:1:])
-#[]
-
-a = ['abcd']
-print(a)
-s = set(a)
+s = {8, 1,5,4,3}
 print(s)
-l = list(s)
-print(l)
 
+s = {5,2,7,1,8}
+print(s)

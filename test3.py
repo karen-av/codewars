@@ -1,22 +1,12 @@
 import itertools
 
-strng = 'aabb'
+strng = 'abcc'
 res = []
 a = itertools.permutations(strng)
-for i in set(a):
+for i in a:
     m = ''.join(i)
-    print(f'i - {i}\nm - {m}')
-    print(type(m))
     res.append(m)
 print(res)
 
-x = ('a', 'b', 'c')
-c = '#'.join(x)
-print(c)
-
-def permutations(x):
-    return list(''.join(i) for i in set(itertools.permutations(x)))
-
-strng = 'aabb'
-done = permutations(strng)
-print(done)
+repeat = set(x for x in res if res.count(x) > 1)
+print(f'repeat - {repeat}')
