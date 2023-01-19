@@ -24,11 +24,12 @@ Good luck!
 
 """
 
+
 import itertools
+#https://docs-python.ru/standart-library/modul-itertools-python/funktsija-permutations-modulja-itertools/
 
 def permutations(s):
     res = set([s])
-    print(f'res - {res}')
     if len(s) == 2:
         res.add(s[1] + s[0]) 
     if len(s) > 2:
@@ -38,8 +39,20 @@ def permutations(s):
     
     return list(res)
 
-def permutations_1(string):
-    return list("".join(p) for p in set(itertools.permutations(string)))
+strng = 'aabb'
+res = []
+a = itertools.permutations(strng)
+for i in set(a):
+    m = ''.join(i)
+    print(f'i - {i}\nm - {m}')
+    print(type(m))
+    res.append(m)
+print(res)
+
+def permutations_1(s):
+    return list("".join(i) for i in set(itertools.permutations(s)))
+# permutations возвращает все варианты перестановки
+
 
 x = 'aabb' 
 #['aabb', 'abab', 'abba', 'baab', 'baba', 'bbaa'])
