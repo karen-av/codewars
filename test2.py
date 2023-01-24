@@ -1,6 +1,5 @@
-
-s = {8, 1,5,4,3}
-print(s)
-
-s = {5,2,7,1,8}
-print(s)
+l = [1, 2, 3]
+n = reversed(l)
+print(next(n[1]))
+print(next(n))
+print(next(n))

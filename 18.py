@@ -18,51 +18,104 @@ All tested numbers are valid, you don't need to validate them
 """
 
 '''            '''
-
-def parse_int(string):
-    dict_str = {
-            'one': 1,
-            'two': 2,
-            'three': 3,
-            'four': 4,
-            'five': 5,
-            'six': 6,
-            'seven': 7,
-            'eight': 8,
-            'nine': 9,
-            'ten': 10,
-            'eleven': 11,
-            'twelve': 12,
-            'thirteen': 13,
-            'fourteen': 14,
-            'fifteen': 15,
-            'sixteen': 16,
-            'seventeen' : 17,
-            'eighteen': 18,
-            'nineteen': 19,
-            'twenty': 20,
-            'thirty': 30,
-            'forty': 40,
-            'fifty': 50,
-            'sixty': 60,
-            'seventy': 70,
-            'eighty': 80,
-            'ninety': 90, 
-            'hundred': 100,
-            'thousand': 1000,
-            'million': 1000000
+dict_str = {
+        'zero': 0,
+        'one': 1,
+        'two': 2,
+        'three': 3,
+        'four': 4,
+        'five': 5,
+        'six': 6,
+        'seven': 7,
+        'eight': 8,
+        'nine': 9,
+        'ten': 10,
+        'eleven': 11,
+        'twelve': 12,
+        'thirteen': 13,
+        'fourteen': 14,
+        'fifteen': 15,
+        'sixteen': 16,
+        'seventeen' : 17,
+        'eighteen': 18,
+        'nineteen': 19,
+        'twenty': 20,
+        'thirty': 30,
+        'forty': 40,
+        'fifty': 50,
+        'sixty': 60,
+        'seventy': 70,
+        'eighty': 80,
+        'ninety': 90, 
+        'hundred': 100,
+        'thousand': 1000,
+        'million': 1000000
     }
-    res = 0
-
+def parse_int(string):
     c = string.replace('-', ' ')
-    c = c.split()
-    print(c)
-    for i, s in enumerate(c):
-        if s == 'hundred':
-            res = res * dict_str[s]
+    c = c.replace(' and ', ' ').split()
+    res, tmp = 0, 0
+    for n, i in enumerate(c):
+        if i == 'hundred':
+            tmp *= dict_str[i]
+        elif i == 'thousand':
+            tmp *= dict_str[i]
+            res += tmp
+            tmp = 0
+        elif i == 'million':
+            tmp *= dict_str[i]
+            res += tmp
+            tmp = 0
         else:
-            res += (dict_str[s])
+            tmp += dict_str[i]
+    res += tmp
     return res
 
-a = 'five hundred forty-seven'
+a = 'two'
+#a = 'two million and five hundred thousand two hundred forty-seven'
 print(parse_int(a))
+
+
+'''
+if s == 'hundred':
+            res -= dict_str[c[i - 1]]
+            res += dict_str[s] * dict_str[c[i - 1]]
+        elif s == 'thousand':
+            if c[i - 1] == 'hundred':
+                res -= dict_str[c[i - 2]] * dict_str[c[i -1]]
+                res += dict_str[c[i - 2]] * dict_str[c[i -1]] * dict_str[s]
+            else:
+                res -= dict_str[c[i - 1]]
+                res += dict_str[c[i - 1]] * dict_str[s]
+        elif s == 'million':
+            res -= dict_str[c[i - 1]]
+            res += dict_str[c[i - 1]] * dict_str[s]
+        else:
+            res += dict_str[s]'''
+
+
+"""
+res = 0
+    c = string.replace('-', ' ')
+    c = c.replace(' and ', ' ').split()
+    h, t = 0, 1
+    c.reverse()
+    print(c)
+    for i, s in  enumerate(c):
+        if h != 0:
+            h -= 1
+        elif s == 'hundred':
+            print(dict_str[s], dict_str[c[i + 1]], t)
+            res += dict_str[s] * dict_str[c[i + 1]] * t
+            h +=1
+
+        elif s == 'thousand':
+            t = 1000
+
+        elif s == 'million':
+            res += dict_str[s] * dict_str[c[i + 1]]  
+            h += 1
+        else:
+            res += dict_str[s] 
+    return res
+"""
