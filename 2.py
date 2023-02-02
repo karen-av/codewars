@@ -10,7 +10,7 @@ def filter_list(l):
     return [i for i in l if isinstance(i, int)]
        
 
-
+ 
 list_old_0 = [1,2,'a','b']
 list_old_1 = [1,'a','b',0,15]
 list_old_2 = [1,2,'aasf','1','123',123]
